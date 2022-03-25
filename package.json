@@ -4,27 +4,27 @@
   "description": "movie_api",
   "main": "index.js",
   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/zackkb/movie_api.git"
+    "type": "git",
+    "url": "git+https://github.com/zackkb/movie_api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-      "url": "https://github.com/zackkb/movie_api/issues"
+    "url": "https://github.com/zackkb/movie_api/issues"
   },
   "homepage": "https://github.com/zackkb/movie_api#readme",
   "dependencies": {
-      "body-parser": "^1.19.2",
-      "express": "^4.17.3",
-      "lodash": "^4.17.21",
-      "morgan": "^1.10.0"
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "lodash": "^4.17.21",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
-      "eslint": "^8.11.0"
+    "eslint": "^8.11.0"
   }
 }
