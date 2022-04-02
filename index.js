@@ -167,7 +167,7 @@ let directors = [{
 ];
 
 // An array of data containing information about users
-let users = [];
+let users = []
 
 
 // GET requests
@@ -175,28 +175,28 @@ app.get('/movies', (req, res) => {
     res.json(movies);
 });
 
-// Return data about a single movie by title
+// READ Return data about a single movie by title
 app.get('/movies/:title', (req, res) => {
     res.json(movies.find((movie) => {
         return movie.title === req.params.title;
     }));
 });
 
-// Return data about a genre
+// READ Return data about a genre
 app.get('/genres/:genre_name', (req, res) => {
     res.json(genres.find((genre) => {
         return genre.genre_name === req.params.genre_name;
     }));
 });
 
-// Return data about a director by name
+// READ Return data about a director by name
 app.get('/directors/:director_name', (req, res) => {
     res.json(directors.find((director) => {
         return director.director_name === req.params.director_name;
     }));
 });
 
-// Allow new users to register
+// CREATE Allow new users to register
 app.post('/users', (req, res) => {
     let newUser = req.body;
     if (!newUser.user_name) {
@@ -204,11 +204,11 @@ app.post('/users', (req, res) => {
     } else {
         newUser.id = uuid.v4();
         users.push(newUser);
-        res.status(201).send('Your profile with the user name ' + req.body.user_name + ' was successfully created!');
+        res.status(200).send('Your profile with the user name: ' + req.body.user_name + ' was successfully created!');
     };
 });
 
-// Allow users to update their user info 
+// UPDATE Allow users to update their user info 
 app.put('/users/:email/:user_name', (req, res) => {
     let user = users.find((user) => {
         return user.email === req.params.email;
@@ -216,9 +216,9 @@ app.put('/users/:email/:user_name', (req, res) => {
 
     if (user) {
         user.user_name = req.params.user_name;
-        res.status(201).send('Your username was successfully updated to: ' + req.params.user_name);
+        res.status(200).send('Your username was successfully updated to: ' + req.params.user_name);
     } else {
-        res.status(404).send('User with mail address ' + req.params.email + ' was not found.');
+        res.status(400).send('User with mail address ' + req.params.email + ' was not found.');
     };
 });
 
@@ -233,13 +233,13 @@ app.post('/users/:email/favorites/:title', (req, res) => {
             user["favorites"] = [];
         };
         user.favorites.push(req.params.title);
-        res.status(201).send('Movie with the title ' + req.params.title + ' was successfully added to your list of favorites!');
+        res.status(200).send('Movie with the title ' + req.params.title + ' was successfully added to your list of favorites!');
     } else {
-        res.status(404).send('User with the email ' + req.params.email + ' was not found.');
+        res.status(400).send('User with the email ' + req.params.email + ' was not found.');
     };
 });
 
-// Allow users to remove a movie from their favorites
+// DELETE Allow users to remove a movie from their favorites
 app.delete('/users/:email/favorites/:title', (req, res) => {
     let user = users.find((user) => {
         return user.email === req.params.email;
@@ -249,16 +249,16 @@ app.delete('/users/:email/favorites/:title', (req, res) => {
         let index = user.favorites.indexOf(req.params.title);
         if (index > -1) {
             user.favorites.splice(index, 1);
-            res.status(201).send('Movie with the title ' + req.params.title + " was successfully deleted from your list.");
+            res.status(200).send('Movie with the title ' + req.params.title + " was successfully deleted from your list.");
         } else {
-            res.status(404).send('Movie not found in list of favorites.');
+            res.status(400).send('Movie not found in list of favorites.');
         }
     } else {
-        res.status(404).send('User with the email ' + req.params.email + ' was not found.');
+        res.status(400).send('User with the email ' + req.params.email + ' was not found.');
     };
 });
 
-// Allow existing users to deregister
+// DELETE Allow existing users to deregister
 app.delete('/users/:email', (req, res) => {
     let user = users.find((user) => {
         return user.email === req.params.email;
@@ -268,9 +268,9 @@ app.delete('/users/:email', (req, res) => {
         users = users.filter((obj) => {
             return obj.email != req.params.email;
         });
-        res.status(201).send('User with the email ' + req.params.email + ' was sucessfully deleted.');
+        res.status(200).send('User with the email ' + req.params.email + ' was sucessfully deleted.');
     } else {
-        res.status(404).send('User with the email ' + req.params.email + ' was not found.');
+        res.status(400).send('User with the email ' + req.params.email + ' was not found.');
     };
 });
 
