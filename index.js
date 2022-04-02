@@ -167,7 +167,14 @@ let directors = [{
 ];
 
 // An array of data containing information about users
-let users = []
+let users = [{
+    id: '1',
+    username: 'Zach',
+    email: 'zackkb@gmail.com',
+    password: 'passw0rd123',
+    birthday: '05.21.1988',
+    favorites: ['A Silent Voice', 'Tokyo Godfathers']
+}];
 
 
 // GET requests
