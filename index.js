@@ -111,7 +111,7 @@ let users = [{
 
 // GET requests
 app.get('/movies', (req, res) => {
-    res.json(movies);
+    res.status(200).json(movies);
 });
 
 // READ Return data about a single movie by title
