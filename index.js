@@ -16,166 +16,98 @@ app.use(bodyParser.json());
 // An array of data for movies
 let movies = [{
         title: 'Letter to Momo',
-        director: 'Hiroyuki Okiura',
-        genre: 'animated, drama',
-        released: '2011',
+        decription: '',
+        year: '2011',
+        genre: {
+            name: 'drama',
+            description: 'The drama genre features stories with high stakes and a lot of conflicts.',
+        },
+        director: {
+            name: 'Hiroyuki Okiura',
+            birth: '1966',
+            death: '-',
+            bio: 'Hiroyuki Okiura is a Japanese animation director and animator working for Production I.G.'
+        },
+        actors: {},
+        imgURL: '',
     },
     {
         title: 'The Boy And The Beast',
-        director: 'Mamoru Hosoda',
-        genre: 'animated, action-adventure, fantasy',
-        released: '2015',
+        decription: '',
+        year: '2015',
+        genre: {
+            name: 'action-adventure, fantasy',
+            description: 'A hybrid genre featuring characters involved in exciting and usually dangerous activities and adventures.',
+        },
+        director: {
+            name: 'Mamoru Hosoda',
+            birth: '1967',
+            death: '-',
+            bio: 'Mamoru Hosoda is a Japanese film director and animator. He was nominated for an Academy Award in the category Best Animated Feature Film at the 91st Academy Awards for his eighth film Mirai.'
+        },
+        actors: {},
+        imgURL: '',
     },
     {
         title: 'A Silent Voice',
-        director: 'Naoko Yamada',
-        genre: 'animated, drama',
-        released: '2016',
+        decription: '',
+        year: '2016',
+        genre: {
+            name: 'drama',
+            description: 'The drama genre features stories with high stakes and a lot of conflicts.',
+        },
+        director: {
+            name: 'Naoko Yamada',
+            birth: '1984',
+            death: '-',
+            bio: 'Naoko Yamada is a Japanese animator, television and film director. Working at Kyoto Animation, she directed the anime series K-On! and Tamako Market, and the anime films A Silent Voice and Liz and the Blue Bird.'
+        },
+        actors: {},
+        imgURL: '',
     },
     {
         title: 'From Up On Poppy Hill',
-        director: 'Gorō Miyazaki',
-        genre: 'animated, drama',
-        released: '2011',
+        decription: '',
+        year: '2011',
+        genre: {
+            name: 'drama',
+            description: 'The drama genre features stories with high stakes and a lot of conflicts.',
+        },
+        director: {
+            name: 'Gorō Miyazaki',
+            birth: '1967',
+            death: '-',
+            bio: 'Goro Miyazaki is a Japanese director. He is the son of animator and film director Hayao Miyazaki, who is one of the co-founders of Studio Ghibli.'
+        },
+        actors: {},
+        imgURL: '',
     },
     {
         title: 'Tokyo Godfathers',
-        director: 'Satoshi Kon',
-        genre: 'animated, tragicomedy, adventure',
-        released: '2003',
-    },
-    {
-        title: 'Miss Hokusai',
-        director: 'Keiichi Hara',
-        genre: 'animated, historical',
-        released: '2015',
-    },
-    {
-        title: 'The Place Promised In Our Early Days',
-        director: 'Makoto Shinkai',
-        genre: 'animated, alternate-history',
-        released: '2004',
-    },
-    {
-        title: 'Night Is Short, Walk On Girl',
-        director: 'Masaaki Yuasa',
-        genre: 'animated, romantic-comedy',
-        released: '2017',
-    },
-    {
-        title: 'Mirai',
-        director: 'Mamoru Hosoda',
-        genre: 'animated, adventure, fantasy, comedy',
-        released: '2018',
-    },
-    {
-        title: 'Millennium Actress',
-        director: 'Satoshi Kon',
-        genre: 'animated, drama',
-        released: '2001',
-    },
-];
-
-// An array of data for genres
-let genres = [{
-        genre_name: 'Animated',
-        description: 'Animated film is a collection of illustrations that are photographed frame-by-frame and then played in a quick succession.'
-    },
-    {
-        genre_name: 'Drama',
-        description: 'The drama genre features stories with high stakes and a lot of conflicts.'
-    },
-    {
-        genre_name: 'Action-Adventure',
-        description: 'A hybrid genre featuring characters involved in exciting and usually dangerous activities and adventures'
-    },
-    {
-        genre_name: 'Fantasy',
-        description: 'A genre that typically features the use of magic or other supernatural phenomena in the plot, setting, or theme.'
-    },
-    {
-        genre_name: 'Tragicomedy',
-        description: 'Tragicomedy is a literary genre that blends aspects of both tragic and comic forms. Most often seen in dramatic literature, the term can describe either a tragic play which contains enough comic elements to lighten the overall mood or a serious play with a happy ending.'
-    },
-    {
-        genre_name: 'Adventure',
-        description: 'The adventure genre consists of movies where the protagonist goes on an epic journey, either personally or geographically. Often the protagonist has a mission and faces many obstacles in his way.'
-    },
-    {
-        genre_name: 'Historical',
-        description: 'Historical fiction is a literary genre where the story takes place in the past. Historical movies capture the details of the time period as accurately as possible for authenticity, including social norms, manners, customs, and traditions.'
-    },
-    {
-        genre_name: 'Alternate-History',
-        description: 'Alternative history is a genre of fiction wherein the author speculates upon how the course of history might have been altered if a particular historical event had an outcome different from the real life outcome.'
-    },
-    {
-        genre_name: 'Romantic-Comedy',
-        description: 'Romantic comedy is a subgenre of comedy and slice-of-life fiction, focusing on lighthearted, humorous plot lines centered on romantic ideas, such as how true love is able to surmount most obstacles.'
-    },
-    {
-        genre_name: 'Fanasty',
-        description: 'Fantasy is a genre that typically features the use of magic or other supernatural phenomena in the plot, setting, or theme.'
-    },
-    {
-        genre_name: 'Comedy',
-        description: 'Comedy is a category of film which emphasizes humor. These films are designed to make the audience laugh through amusement.'
+        decription: '',
+        year: '2003',
+        genre: {
+            name: 'tragicomedy, adventure',
+            description: 'The adventure genre consists of movies where the protagonist goes on an epic journey, either personally or geographically. Often the protagonist has a mission and faces many obstacles in his way.',
+        },
+        director: {
+            name: 'Satoshi Kon',
+            birth: '1963',
+            death: '2010',
+            bio: 'Satoshi Kon was a Japanese film director, animator, screenwriter and manga artist from Sapporo, Hokkaidō and a member of the Japanese Animation Creators Association. Tsuyoshi Kon, a guitarist, is his brother. He was a graduate of the Graphic Design department of the Musashino Art University.'
+        },
+        actors: {},
+        imgURL: '',
     }
-];
 
-// An array of data for directors
-let directors = [{
-        director_name: 'Hiroyuki Okiura',
-        birth_year: 1966,
-        bio: 'Hiroyuki Okiura is a Japanese animation director and animator working for Production I.G.'
-    },
-    {
-        director_name: 'Mamoru Hosoda',
-        birth_year: 1967,
-        bio: 'Mamoru Hosoda is a Japanese film director and animator. He was nominated for an Academy Award in the category Best Animated Feature Film at the 91st Academy Awards for his eighth film Mirai.'
-    },
-    {
-        direcor_name: 'Naoko Yamada',
-        birth_year: 1984,
-        bio: 'Naoko Yamada is a Japanese animator, television and film director. Working at Kyoto Animation, she directed the anime series K-On! and Tamako Market, and the anime films A Silent Voice and Liz and the Blue Bird.'
-    },
-    {
-        director_name: 'Gorō Miyazaki',
-        birth_year: 1967,
-        bio: 'Goro Miyazaki is a Japanese director. He is the son of animator and film director Hayao Miyazaki, who is one of the co-founders of Studio Ghibli.'
-    },
-    {
-        director_name: 'Satoshi Kon',
-        birth_year: 1963,
-        bio: 'Satoshi Kon was a Japanese film director, animator, screenwriter and manga artist from Sapporo, Hokkaidō and a member of the Japanese Animation Creators Association. Tsuyoshi Kon, a guitarist, is his brother. He was a graduate of the Graphic Design department of the Musashino Art University.'
-    },
-    {
-        director_name: 'Keiichi Hara',
-        birth_year: 1959,
-        bio: 'Keiichi Hara is a Japanese director of animated films.'
-    },
-    {
-        director_name: 'Makoto Shinkai',
-        birth_year: 1973,
-        bio: 'Makoto Shinkai is a Japanese animator, filmmaker, author, and manga artist. Shinkai began his career as a video game animator with Nihon Falcom in 1996, and gained recognition as a filmmaker with the release of the original video animation She and Her Cat.'
-    },
-    {
-        director_name: 'Masaaki Yuasa',
-        birth_year: 1965,
-        bio: 'Masaaki Yuasa is a Japanese director, screenwriter, and animator affiliated with Science SARU, a Japanese animation studio which he co-founded with producer Eunyoung Choi in 2013. Yuasa previously served as president of Science SARU, but stepped down from this role in 2020.'
-    }
 ];
 
 // An array of data containing information about users
 let users = [{
     id: '1',
     username: 'Zach',
-    email: 'zackkb@gmail.com',
-    password: 'passw0rd123',
-    birthday: '05.21.1988',
     favorites: ['A Silent Voice', 'Tokyo Godfathers']
 }];
-
 
 // GET requests
 app.get('/movies', (req, res) => {
@@ -183,102 +115,119 @@ app.get('/movies', (req, res) => {
 });
 
 // READ Return data about a single movie by title
-app.get('/movies/:title', (req, res) => {
-    res.json(movies.find((movie) => {
-        return movie.title === req.params.title;
-    }));
+app.get("/movies/:title", (req, res) => {
+    const {
+        title
+    } = req.params;
+    const movie = movies.find((movie) => movie.title === title);
+    if (movie) {
+        res.status(200).json(movie);
+    } else {
+        res.status(400).send("Movie not found!");
+    }
 });
 
 // READ Return data about a genre
-app.get('/genres/:genre_name', (req, res) => {
-    res.json(genres.find((genre) => {
-        return genre.genre_name === req.params.genre_name;
-    }));
+app.get("/movies/genre/:genreName", (req, res) => {
+    const {
+        genreName
+    } = req.params;
+    const genre = movies.find((movie) => movie.genre.name === genreName).genre;
+    if (genre) {
+        res.status(200).json(genre);
+    } else {
+        res.status(400).send("Genre not found!");
+    }
 });
 
 // READ Return data about a director by name
-app.get('/directors/:director_name', (req, res) => {
-    res.json(directors.find((director) => {
-        return director.director_name === req.params.director_name;
-    }));
+app.get("/movies/directors/:directorName", (req, res) => {
+    const {
+        directorName
+    } = req.params;
+    const director = movies.find(
+        (movie) => movie.director.name === directorName
+    ).director;
+    if (director) {
+        res.status(200).json(director);
+    } else {
+        res.status(400).send("Director not found!");
+    }
 });
 
 // CREATE Allow new users to register
-app.post('/users', (req, res) => {
-    let newUser = req.body;
-    if (!newUser.user_name) {
-        res.status(400).send('Missing user name in request body!');
-    } else {
+app.post("/users", (req, res) => {
+    const newUser = req.body;
+    if (newUser.name) {
         newUser.id = uuid.v4();
         users.push(newUser);
-        res.status(200).send('Your profile with the user name: ' + req.body.user_name + ' was successfully created!');
-    };
+        res.status(200).json(newUser);
+    } else {
+        res.status(400).send("Missing username in body!");
+    }
 });
 
 // UPDATE Allow users to update their user info 
-app.put('/users/:email/:user_name', (req, res) => {
-    let user = users.find((user) => {
-        return user.email === req.params.email;
-    });
-
+app.put("/users/:id", (req, res) => {
+    const {
+        id
+    } = req.params;
+    const updatedUser = req.body;
+    let user = users.find((user) => user.id == id);
     if (user) {
-        user.user_name = req.params.user_name;
-        res.status(200).send('Your username was successfully updated to: ' + req.params.user_name);
+        user.name = updatedUser.name;
+        res.status(200).json(user);
     } else {
-        res.status(400).send('User with mail address ' + req.params.email + ' was not found.');
-    };
+        res.status(400).send("User not found!");
+    }
 });
 
 // Allow users to add a movie to their favorites
-app.post('/users/:email/favorites/:title', (req, res) => {
-    let user = users.find((user) => {
-        return user.email === req.params.email;
-    });
-
+app.post("/users/:id/:movieTitle", (req, res) => {
+    const {
+        id,
+        movieTitle
+    } = req.params;
+    let user = users.find((user) => user.id == id);
     if (user) {
-        if (!user.favorites) {
-            user["favorites"] = [];
-        };
-        user.favorites.push(req.params.title);
-        res.status(200).send('Movie with the title ' + req.params.title + ' was successfully added to your list of favorites!');
+        user.favoriteMovies.push(movieTitle);
+        res.status(200).send(`${movieTitle}has been added to user ${id}'s favorites!`);
     } else {
-        res.status(400).send('User with the email ' + req.params.email + ' was not found.');
-    };
+        res.status(400).send("User not found!");
+    }
 });
 
 // DELETE Allow users to remove a movie from their favorites
-app.delete('/users/:email/favorites/:title', (req, res) => {
-    let user = users.find((user) => {
-        return user.email === req.params.email;
-    });
-
+app.delete("/users/:id/:movieTitle", (req, res) => {
+    const {
+        id,
+        movieTitle
+    } = req.params;
+    let user = users.find((user) => user.id == id);
     if (user) {
-        let index = user.favorites.indexOf(req.params.title);
-        if (index > -1) {
-            user.favorites.splice(index, 1);
-            res.status(200).send('Movie with the title ' + req.params.title + " was successfully deleted from your list.");
-        } else {
-            res.status(400).send('Movie not found in list of favorites.');
-        }
+        user.favoriteMovies = user.favoriteMovies.filter(
+            (title) => title !== movieTitle
+        );
+        res
+            .status(200)
+            .send(`${movieTitle}has been removed from user ${id}'s favorites!`);
     } else {
-        res.status(400).send('User with the email ' + req.params.email + ' was not found.');
-    };
+        res.status(400).send("User not found!");
+    }
 });
 
 // DELETE Allow existing users to deregister
-app.delete('/users/:email', (req, res) => {
-    let user = users.find((user) => {
-        return user.email === req.params.email;
-    });
-
+app.delete("/users/:id", (req, res) => {
+    const {
+        id
+    } = req.params;
+    let user = users.find((user) => user.id == id);
     if (user) {
-        users = users.filter((obj) => {
-            return obj.email != req.params.email;
-        });
-        res.status(200).send('User with the email ' + req.params.email + ' was sucessfully deleted.');
+        users = users.filter((user) => user.id != id);
+        res.status(200).send(`User ${id} has been deleted!`);
     } else {
-        res.status(400).send('User with the email ' + req.params.email + ' was not found.');
-    };
+        res.status(400).send("User not found!");
+    }
 });
 
 // GET Welcome message for '/' request URL

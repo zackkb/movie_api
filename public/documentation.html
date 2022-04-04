@@ -24,143 +24,169 @@
     <br>
     <table style="width:100%">
         <tr>
-            <th>Client Request</th>
+            <th>Request</th>
             <th>URL</th>
             <th>HTTP Method</th>
-            <th>Request Body Data Format</th>
-            <th>Response Body Data Format</th>
+            <th>Query parameters</th>
+            <th>Request</th>
+            <th>Response</th>
         </tr>
         <tr>
             <td>Return a list of ALL movies to the user</td>
-            <td>/movies</td>
+            <td>/movies/[id]</td>
             <td>GET</td>
-            <td>none</td>
-            <td>A JSON object holding data about all the movies</td>
+            <td>:id</td>
+            <td>None</td>
+            <td>A JSON object holding data about all movies</td>
         </tr>
         <tr>
-            <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie
+            <td>Return data about a single movie
                 by title to the user</td>
-            <td>/movies/:title</td>
+            <td>/movies/[title]</td>
             <td>GET</td>
+            <td>:title</td>
             <td>none</td>
             <td>A JSON object holding data about a single movie. Example:<br>
                 <pre>
-                {
-                  "Genre": {
-                      "Name": "Animated",
-                      "Description": "Animated film is a collection of illustrations that are photographed frame-by-frame and then played in a quick succession."
-                  },
-                  "Director": {
-                      "Name": "Hiroyuki Okiura",
-                      "Bio": "Hiroyuki Okiura is a Japanese animation director and animator working for Production I.G.",
-                      "Birthday": "1966"
-                  }
-                }
-                </pre>
+                    <code>
+          {
+            Title: '', 
+            Description: '',
+            Year: '', 
+            Genre: {
+              name: '',
+              description: ''
+            } 
+            Director: {
+              name: '', 
+              birth: '',
+              death: ''
+              bio: ''
+            },
+            Actors: {
+        
+            }
+            ImagePath: ''
+          }
+                    </code>
+                  </pre>
             </td>
         </tr>
         <tr>
             <td>Return data about a genre (description) by name/title (e.g., “Comedy”)</td>
-            <td>/movies/genres/:genre_name</td>
+            <td>/movies/genres/[genre]</td>
             <td>GET</td>
+            <td>:genre</td>
             <td>none</td>
             <td>A JSON object holding data about a genre. Example:<br>
                 <pre>
-                        {
-                          "Name": "Comedy",
-                          "Description": "Comedy is a category of film which emphasizes humor. These films are designed to make the audience laugh through amusement."
-                        }
-                        </pre>
+                    <code>
+          { 
+            name: 'Comedy', 
+            description: '', 
+          }
+                    </code>
+                  </pre>
             </td>
         </tr>
         <tr>
-            <td>Return data about a director (bio, birth year, death year) by name</td>
-            <td>/movies/directors/:director_name</td>
+            <td>Return data about a director by name</td>
+            <td>/movies/directors/[name]</td>
             <td>GET</td>
-            <td>none</td>
-            <td>A JSON object holding data about a director. Example:<br>
+            <td>:name</td>
+            <td>None</td>
+            <td>A JSON object holding data about the selected director. Example:
                 <pre>
-                    {
-                      "Name": "Hiroyuki Okiura",
-                      "Bio": "Hiroyuki Okiura is a Japanese animation director and animator working for Production I.G.",
-                      "Birthday": "1966"
-                    }
-                    </pre>
+              <code>
+    { 
+      name: 'Hiroyuki Okiura', 
+      birth: '1966', 
+      death: '-',
+      bio: ''
+    }
+              </code>
+            </pre>
             </td>
         </tr>
         <tr>
             <td>Allow new users to register</td>
             <td>/users</td>
             <td>POST</td>
-            <td>A JSON object holding the user information. Example:<br>
+            <td>None</td>
+            <td>A JSON object holding data about user being added, structured like:<br>
                 <pre>
-                        {
-                          "Username": "Zach",
-                          "Email": "zackkb@gmail.com",
-                          "Password" "passw0rd123",
-                          "Birthday": "05.21.1988"
-                        }
-                        </pre>
+                    <code>
+          { 
+            "username": "Zach", 
+            "favorites": [
+              ...
+            ] 
+          }
+                    </code>
+                  </pre>
             </td>
-            <td>A JSON object holding the newly created user, including ObjectId. Example:<br>
+            <td>JSON object holding data about added user including ID. Ex:
                 <pre>
-                        {
-                          "Username": "Zach",
-                          "Email": "zackkb@gmail.com",
-                          "Password": "passw0rd123",
-                          "Birthday": "05.21.1988",
-                          "FavoriteMovies": ['A Silent Voice', 'Tokyo Godfathers']
-                        }
-                        </pre>
+            <code>
+  { 
+    id: '1',
+    "username": "Zach", 
+    "favorites": [
+      ...
+    ] 
+  }
+            </code>
+          </pre>
             </td>
-        </tr>
-        <tr>
-            <td>Return a list of all users</td>
-            <td>/users</td>
-            <td>GET</td>
-            <td>none</td>
-            <td>A JSON object holding data about all users</td>
-        </tr>
-        <tr>
-            <td>Return data on a single user by name</td>
-            <td>/users/:user_name</td>
-            <td>GET</td>
-            <td>none</td>
-            <td>A JSON object holding data about the requested user</td>
         </tr>
         <tr>
             <td>Allow users to update their user info</td>
-            <td>/users/:user_name</td>
+            <td>/users/[id]</td>
             <td>PUT</td>
-            <td>A JSON object holding the information that should be updated. Example:<br>
+            <td>:id</td>
+            <td> A JSON object holding the new username. Ex:
                 <pre>
-          {
-            "Password": "passw0rd123"
-          }
+            <code>
+  { 
+    "name": "Zach"
+  }
+            </code>
           </pre>
             </td>
-            <td>A JSON object holding data about the updated user</td>
+            <td>JSON object with the updated user. Ex:
+                <pre>
+            <code>
+  { 
+    id: '1',
+    name: 'Zach', 
+  }
+            </code>
+          </pre>
+            </td>
         </tr>
         <tr>
             <td>Allow users to add a movie to their list of favorites</td>
-            <td>/users/:user_name/movies/:title</td>
+            <td>/users/[id]/[movie]</td>
             <td>POST</td>
-            <td>none</td>
-            <td>A JSON object holding data about the updated user</td>
+            <td>:id, :movie</td>
+            <td>None</td>
+            <td>Message indicating the movie was added</td>
         </tr>
         <tr>
             <td>Allow users to remove a movie from their list of favorites</td>
-            <td>/users/:user_name/movies/:title</td>
+            <td>/users/[id]/[movie]</td>
             <td>DELETE</td>
-            <td>none</td>
-            <td>A JSON object holding data about the updated user</td>
+            <td>:id, :movie</td>
+            <td>None</td>
+            <td>Message indicating the movie was deleted</td>
         </tr>
         <tr>
-            <td>Allow existing users to deregister</td>
-            <td>/users/:user_name</td>
+            <td>Deletes a user</td>
+            <td>/users/[id]</td>
             <td>DELETE</td>
-            <td>none</td>
-            <td>A success message indicating that the profile was successfully deleted.</td>
+            <td>:id</td>
+            <td>None</td>
+            <td>Messege stating user has been deleted</td>
         </tr>
     </table>
 </body>
