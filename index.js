@@ -20,9 +20,9 @@ const Models = require("./models.js");
 const Movies = Models.Movie;
 const Users = Models.User;
 
-mongoose.connect("mongodb://0.0.0.0:27017/myFlixDB", {
+mongoose.connect(process.env.CONNECTION_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: true
 });
 
 // Use body-parser middleware
