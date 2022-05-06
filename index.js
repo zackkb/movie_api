@@ -56,18 +56,17 @@ require('./passport');
 app.use(morgan("common"));
 
 // GET requests
-app.get('/movies', passport.authenticate('jwt', {
-    session: false
-}), (req, res) => {
+
+app.get("/movies", function (req, res) {
     Movies.find()
-        .then((movie) => {
-            res.status(201).json(movie);
-        })
-        .catch((err) => {
-            console.error(err);
-            res.status(500).send('Error: ' + err);
-        });
-});
+      .then(function (movies) {
+        res.status(201).json(movies);
+      })
+      .catch(function (error) {
+        console.error(error);
+        res.status(500).send("Error: " + error);
+      });
+  });
 
 // READ Return data about a single movie by title
 app.get('/movies/:Title', passport.authenticate('jwt', {
