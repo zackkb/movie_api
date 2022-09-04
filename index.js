@@ -32,6 +32,9 @@ app.use(
 );
 
 const cors = require("cors");
+
+/* ******* UNCOMMENT TO SET CORS POLICY!! *******
+************************************************
 app.use(cors());
 let allowedOrigins = [
   "http://localhost:8080",
@@ -56,6 +59,9 @@ app.use(
     },
   })
 );
+************************************************
+******* UNCOMMENT TO SET CORS POLICY *******
+*/
 
 let auth = require("./auth")(app);
 // Require passport module and import ./passport.js
