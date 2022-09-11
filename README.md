@@ -64,7 +64,7 @@ The endpoints of the API can be accessed with HTTP methods (POST, GET, PUT, and 
 
 ### Get data of a genre
 
-<strong>Endpoint:</strong> `/genres/[genre name]`
+<strong>Endpoint:</strong> `/genre/[genre name]`
 <strong>HTTP method:</strong> GET
 <strong>Request body data format:</strong> none
 <strong>Response body data format:</strong> JSON object holding data about a genre
@@ -79,7 +79,7 @@ The endpoints of the API can be accessed with HTTP methods (POST, GET, PUT, and 
 
 ### Get data of a director
 
-<strong>Endpoint:</strong> `/directors/[name]`
+<strong>Endpoint:</strong> `/director/[name]`
 <strong>HTTP method:</strong> GET
 <strong>Request body data format:</strong> none
 <strong>Response body data format:</strong> JSON object holding data about a director including bio, birth year, death year
